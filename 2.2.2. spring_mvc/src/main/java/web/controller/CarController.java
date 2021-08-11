@@ -4,30 +4,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import web.model.Car;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class Car {
-    private String model;
-    private int year;
-    private int power;
+public class CarController {
 
-    public Car() {
-    }
-
-    public Car(String model, int year, int power) {
-        this.model = model;
-        this.year = year;
-        this.power = power;
-    }
 
     @GetMapping("/cars")
     public String getCars(ModelMap model, @RequestParam(value = "count", required = false) String count){
-
-
-
 
         if(count==null||Integer.parseInt(count)>=5) {
             List<Car> messages = new ArrayList<>();
@@ -52,12 +39,5 @@ public class Car {
         return "cars";
     }
 
-    @Override
-    public String toString() {
-        return "Car{" +
-                "model='" + model + '\'' +
-                ", year=" + year +
-                ", power=" + power +
-                '}';
-    }
+
 }
