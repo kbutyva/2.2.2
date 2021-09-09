@@ -7,7 +7,7 @@ import java.util.List;
 
 public class CarService {
 
-    public List getFiveCars() {
+    public List<Car> getFiveCars() {
 
         List<Car> messages = new ArrayList<>();
         messages.add(new Car("lada", 1984, 90));
@@ -18,18 +18,11 @@ public class CarService {
         return messages;
     }
 
-    public List getTwoCars(){
-        List<Car> messages = new ArrayList<>();
-        messages.add(new Car("lada", 1984, 90));
-        messages.add(new Car("ford", 2000, 250));
-        return messages;
-    }
-
-    public List getThreeCars(){
-        List<Car> messages = new ArrayList<>();
-        messages.add(new Car("lada", 1984, 90));
-        messages.add(new Car("ford", 2000, 250));
-        messages.add(new Car("opel", 2020, 160));
-        return messages;
+    public List<Car> newList(int z){
+        List<Car> list = new ArrayList<>();
+        for (int i=0; i<z && i<5;i++ ){
+            list.add(getFiveCars().get(i));
+        }
+        return list;
     }
 }

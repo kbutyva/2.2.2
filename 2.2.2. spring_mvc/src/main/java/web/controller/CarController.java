@@ -14,12 +14,9 @@ public class CarController {
 
         if (count == null || Integer.parseInt(count) >= 5) {
             model.addAttribute("messages", new CarService().getFiveCars());
-        } else if (Integer.parseInt(count) == 2) {
+        } else {
 
-            model.addAttribute("messages", new CarService().getTwoCars());
-        } else if (Integer.parseInt(count) == 3) {
-
-            model.addAttribute("messages", new CarService().getThreeCars());
+            model.addAttribute("messages", new CarService().newList(Integer.parseInt(count)));
         }
         return "cars";
     }
